@@ -2,12 +2,12 @@ package com.example.thymeleftTest.dto;
 
 import lombok.*;
 
-//@Getter
-//@Setter
-//@ToString
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+//@Data
 
 public class IveMember {
     private String memberName ;

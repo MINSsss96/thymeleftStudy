@@ -13,28 +13,46 @@ import java.util.List;
 @RequestMapping("product")
 
 public class ProductController {
+//     @GetMapping("/info")
+//    public String info(Model model) {
+//        Product product = new Product();
+//        product.setName("콜라");
+//        product.setPrice(1000);
+//        product.setStock(10);
+//
+//        product.setName("사이다");
+//        product.setPrice(1200);
+//        product.setStock(7);
+//
+//        model.addAttribute("product", product);
+//
+//        List<Product> productList = new ArrayList<>();
+//        Product cola = new Product("콜라", 1000, 10);
+//        Product cyder = new Product("사이다", 1200, 7);
+//        productList.add(cola);
+//        productList.add(cyder);
+//        model.addAttribute("list", productList);
+//
+//
+//        return "/product/info";
+//    }
 
-    @GetMapping("/info")
-    public String info(Model model){
-        Product product = new Product();
-        product.setName("콜라");
-        product.setPrice(1000);
-        product.setStock(10);
-
-        product.setName("사이다");
-        product.setPrice(1200);
-        product.setStock(7);
-
-        model.addAttribute("product", product);
-
-        List<Product> productList = new ArrayList<>();
-        Product cola = new Product("콜라", 1000, 10);
+@GetMapping("/info")
+    public String login(Model model) {
+        String url = "/product";
+        Product cola = new Product();
+        cola.setName("콜라");
+        cola.setPrice(1000);
+        cola.setStock(10);
         Product cyder = new Product("사이다", 1200, 7);
-        productList.add(cola);
-        productList.add(cyder);
-        model.addAttribute("list", productList);
 
+        // 리스트에 담는다.
+        List<Product> products = new ArrayList<>();
 
-        return "/product/info";
+        products.add(cola);
+        products.add(cyder);
+        model.addAttribute("products", products);
+        url = url + "/info";
+        return url;
     }
 }
