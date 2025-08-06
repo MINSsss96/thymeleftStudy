@@ -40,4 +40,10 @@ public class LinkController {
         return "/link/query_result";
 
     }
+
+    @GetMapping("/{id}")
+    public String queryAndPath(Model model, @PathVariable("id") String name,@RequestParam("address") String address ){
+                model.addAttribute("info", name + "" + address);
+        return "/link/query_result";
+    }
 }

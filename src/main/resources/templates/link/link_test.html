@@ -7,26 +7,36 @@
 <body>
 <h1>URL 링크</h1>
 <ul> 기본 URL 링크
-  <li><a th:href="@{hello}">Basic URL</a></li>
+    <li><a th:href="@{hello}">Basic URL</a></li>
 </ul>
 <ul> 장원영 정보 출력
-  <li> 이름 :[[${jang.memberName}]] </li>
-  <li> 나이 :[[${jang.age}]] </li>
-  <li> 주소 :[[${jang.address}]] </li>
+    <li> 이름 :[[${jang.memberName}]]</li>
+    <li> 나이 :[[${jang.age}]]</li>
+    <li> 주소 :[[${jang.address}]]</li>
 </ul>
 <ul>쿼리 파라미터(Query Param)
-<!--localhost:8080/query?name=장원영&age=21-->
-  <li><a th:href="@{|/query?name=${jang.memberName}&age=${jang.age}|}">쿼리 파라미터 테스트</a></li>
+    <!--localhost:8080/query?name=장원영&age=21-->
+    <li><a th:href="@{|/query?name=${jang.memberName}&age=${jang.age}|}">쿼리 파라미터 테스트</a></li>
 </ul>
 <ul>쿼리 파라미터를 DTO로 받기
-  <!--localhost:8080/query?name=장원영&age=21-->
-  <li><a th:href="@{|/queryDTO?memberName=${jang.memberName}&age=${jang.age}&address=${jang.address}|}">쿼리 파라미터를 DTO로 받기</a></li>
+    <!--localhost:8080/query?name=장원영&age=21-->
+    <li><a th:href="@{|/queryDTO?memberName=${jang.memberName}&age=${jang.age}&address=${jang.address}|}">쿼리 파라미터를 DTO로
+        받기</a></li>
 </ul>
 
 <hr>
-<ui>PathVariable 테스트
-  <!--localhost:8080/path/장원영/21-->
-  <li><a th:href="@{|/path/${jang.memberName}/${jang.age}|}">PathVariable 테스트</a></li>
-</ui>
+<ul>PathVariable 테스트
+    <!--localhost:8080/path/장원영/21-->
+    <li><a th:href="@{|/path/${jang.memberName}/${jang.age}|}">PathVariable 테스트</a></li>
+</ul>
+
+<ul>쿼리 파라미터 + 경로변수 테스트
+    <!--이름은 경로변수에 넣고 주소는 쿼리 스트링으로 보내기-->
+    <li>
+        <a th:href="@{|/${jang.memberName}?address=${jang.address}|}">쿼리 파라미터 + 경로변수 테스트</a>
+    </li>
+
+</ul>
+
 </body>
 </html>
